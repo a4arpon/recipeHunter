@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div className="hero py-10 bg-info">
-      <div className="hero-content flex-col-reverse lg:flex-row">
+      <div className="hero-content flex-col-reverse lg:flex-row container w-full">
         <div className="lg:w-3/4">
           <h1 className="text-5xl font-bold">Box Office News!</h1>
           <p className="py-6">

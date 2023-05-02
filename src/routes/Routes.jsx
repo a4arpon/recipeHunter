@@ -8,16 +8,20 @@ const Routes = createBrowserRouter([
   {
     path: '/',
     // element: <PrivateRoutes><Home/></PrivateRoutes>,
-    element: <Home/>,
+    element: <Home />,
+    loader: () =>
+      fetch(
+        'https://b7a10-chef-recipe-hunter-server-side-a4arpon-a4arpon.vercel.app/'
+      ),
     errorElement: <Error />
   },
   {
     path: '/login',
-    element: <Login/>
+    element: <Login />
   },
   {
     path: '/register',
-    element: <Register/>
+    element: <Register />
   }
 ])
 export default Routes
