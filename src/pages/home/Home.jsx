@@ -1,18 +1,23 @@
-import { useLoaderData } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import Hero from '../../components/Hero'
-import Footer from '../../components/shared/Footer'
-import Navbar from '../../components/shared/Navbar'
+import Loader from '../../components/shared/Loader'
+import ChefCard from './ChefCard'
 
 const Home = () => {
-  const chefs = useLoaderData()
-  console.log(chefs)
+  const [chefs, setChefs] = useState(null)
+  useEffect(() => {
+    fetch(
+      'https://b7a10-chef-recipe-hunter-server-side-a4arpon-a4arpon.vercel.app/'
+    )
+      .then((res) => res.json())
+      .then((res) => setChefs(res))
+      .catch(toast.error('Failed To Load Data.'))
+  }, [])
   return (
     <div>
-      <div className="bg-accent bg-opacity-80 sticky z-10">
-        <Navbar />
-      </div>
       <Hero />
-      <Footer />
+      {chefs ? chefs.map((item) => <ChefCard key={item._id} />) : <Loader />}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+import MainLayout from '../layouts/MainLayout'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import Error from '../pages/error/Error'
@@ -8,11 +9,8 @@ const Routes = createBrowserRouter([
   {
     path: '/',
     // element: <PrivateRoutes><Home/></PrivateRoutes>,
-    element: <Home />,
-    loader: () =>
-      fetch(
-        'https://b7a10-chef-recipe-hunter-server-side-a4arpon-a4arpon.vercel.app/'
-      ),
+    element: <MainLayout />,
+    children: [{ path: '/', element: <Home /> }],
     errorElement: <Error />
   },
   {
