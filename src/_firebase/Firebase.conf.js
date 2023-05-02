@@ -1,14 +1,12 @@
 import { initializeApp } from 'firebase/app'
-
 const firebaseConfig = {
-  apiKey: 'AIzaSyBhUmrupvCENEY9melAr_ckWt7H75gXEq8',
-  authDomain: 'lairorea.firebaseapp.com',
-  projectId: 'lairorea',
-  storageBucket: 'lairorea.appspot.com',
-  messagingSenderId: '448045063217',
-  appId: '1:448045063217:web:9c17dbe6d62d8e38714910',
-  measurementId: 'G-5ED1PMRCHT'
+  apiKey: 'AIzaSyCpxUI5PHrrZYo9zjtTsTElQO5A7u_ha-g',
+  authDomain: 'aliganjonline.firebaseapp.com',
+  projectId: 'aliganjonline',
+  storageBucket: 'aliganjonline.appspot.com',
+  messagingSenderId: '1023529322391',
+  appId: '1:1023529322391:web:c27953feb854bf5599a6d2'
 }
-// Initialize Firebase
+
 const firebaseApp = initializeApp(firebaseConfig)
 export default firebaseApp

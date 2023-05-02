@@ -19,7 +19,7 @@ const Home = () => {
       <Hero />
       {chefs
         ? (
-        <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-5 gap-3 px-2">
+        <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-16 gap-5 px-2">
           {chefs.map((item) => (
             <ChefCard key={item._id} chef={item}/>
           ))}

@@ -19,10 +19,12 @@ const Chef = () => {
     return (
       <div>
         <div className="hero py-10 bg-info">
-          <div className="hero-content flex-col-reverse lg:flex-row container w-full items-start lg:items-center">
+          <div className="hero-content flex-col-reverse md:flex-row lg:container w-full items-start lg:items-center md:justify-between">
             <div className="lg:w-3/4">
               <h1 className="text-5xl font-bold">{chef.chefName}</h1>
-              <p className="py-6">Great Food, Great Life.</p>
+              <p className="py-6">
+                {chef?.bio || 'Great Food, Great Life'}
+              </p>
               <ul className="font-semibold">
                 <li>Years of experience : {chef?.yearsOfExperience || 0}</li>
                 <li>Numbers of recipes : {chef?.numbersOfRecipes || 0}</li>
@@ -35,7 +37,7 @@ const Chef = () => {
             />
           </div>
         </div>
-        <div className="container mx-auto grid lg:grid-cols-2 gap-3 my-5">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-3 my-16">
           {chef?.recipes?.map((recipe) => (
             <Recipe key={recipe._id} recipe={recipe} />
           ))}
