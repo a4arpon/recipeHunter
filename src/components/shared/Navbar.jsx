@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom'
+
 const Navbar = () => {
   return (
     <div className="navbar bg-transparent container mx-auto ">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl lg:text-3xl">Chef Recipe Hunter</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl lg:text-3xl">Chef Recipe Hunter</Link>
       </div>
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

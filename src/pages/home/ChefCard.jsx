@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom'
+
 const ChefCard = ({ chef }) => {
-  const { chefName, yearsOfExperience, numbersOfRecipes } = chef
+  const { _id, chefName, yearsOfExperience, numbersOfRecipes } = chef
   return (
     <div className="card card-compact w-full bg-base-100 shadow-xl">
       <figure>
@@ -16,7 +18,9 @@ const ChefCard = ({ chef }) => {
           <li>Numbers of recipes : {numbersOfRecipes}</li>
         </ul>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Recipes Button</button>
+          <Link className="btn btn-primary" to={`/chef/${_id}`}>
+            View Recipes Button
+          </Link>
         </div>
       </div>
     </div>
