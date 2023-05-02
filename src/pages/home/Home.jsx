@@ -17,7 +17,17 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      {chefs ? chefs.map((item) => <ChefCard key={item._id} />) : <Loader />}
+      {chefs
+        ? (
+        <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-5 gap-3 px-2">
+          {chefs.map((item) => (
+            <ChefCard key={item._id} chef={item}/>
+          ))}
+        </div>
+          )
+        : (
+        <Loader />
+          )}
     </div>
   )
 }

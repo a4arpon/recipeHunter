@@ -10,7 +10,10 @@ const Routes = createBrowserRouter([
     path: '/',
     // element: <PrivateRoutes><Home/></PrivateRoutes>,
     element: <MainLayout />,
-    children: [{ path: '/', element: <Home /> }],
+    children: [
+      { path: '/', element: <Home /> },
+      { path: '/chefID/:id', element: <Home /> }
+    ],
     errorElement: <Error />
   },
   {
