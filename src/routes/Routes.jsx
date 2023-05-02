@@ -1,0 +1,23 @@
+import { createBrowserRouter } from 'react-router-dom'
+import Login from '../pages/auth/Login'
+import Register from '../pages/auth/Register'
+import Error from '../pages/error/Error'
+import Home from '../pages/home/Home'
+
+const Routes = createBrowserRouter([
+  {
+    path: '/',
+    // element: <PrivateRoutes><Home/></PrivateRoutes>,
+    element: <Home/>,
+    errorElement: <Error />
+  },
+  {
+    path: '/login',
+    element: <Login/>
+  },
+  {
+    path: '/register',
+    element: <Register/>
+  }
+])
+export default Routes
