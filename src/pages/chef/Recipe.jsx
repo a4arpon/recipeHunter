@@ -36,7 +36,7 @@ const Recipe = ({ recipe }) => {
           </ul>
         </div>
         <div className="card-actions justify-end mt-auto">
-          <button className="btn btn-primary">Mark As Favorite</button>
+          <button className="btn btn-primary font-bold">Mark As Favorite</button>
         </div>
       </div>
     </div>

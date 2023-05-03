@@ -8,7 +8,7 @@ const Hero = () => {
           <p className="py-6">
             Great Food, Great Life.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary font-bold">Get Started</button>
         </div>
         <img
           src={heroImage}

@@ -37,7 +37,7 @@ const Chef = () => {
             />
           </div>
         </div>
-        <div className="container mx-auto grid lg:grid-cols-2 gap-3 my-16">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-3 my-16 px-2 md:px-0">
           {chef?.recipes?.map((recipe) => (
             <Recipe key={recipe._id} recipe={recipe} />
           ))}

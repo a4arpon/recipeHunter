@@ -4,7 +4,12 @@ const Navbar = () => {
   return (
     <div className="navbar bg-transparent container mx-auto ">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost hover:bg-transparent text-xl lg:text-3xl">Chef Recipe Hunter</Link>
+        <Link
+          to="/"
+          className="btn btn-ghost hover:bg-transparent text-xl lg:text-3xl font-bold"
+        >
+          BuckDonald&apos;s
+        </Link>
       </div>
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
