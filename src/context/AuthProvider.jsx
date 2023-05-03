@@ -4,7 +4,9 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile
 } from 'firebase/auth'
 import { createContext, useEffect, useState } from 'react'
@@ -16,14 +18,21 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const signInWithEmail = (email, password) => {
+    setLoading(true)
+    return signInWithEmailAndPassword(firebaseAuth, email, password)
+  }
   // Firebase signIn with Email
   const signUpWithEmail = (email, password) => {
     setLoading(true)
     return createUserWithEmailAndPassword(firebaseAuth, email, password)
   }
+  // This function updates user name while user is been created with email and password.
   const updateUserName = (name) => {
     return updateProfile(firebaseAuth.currentUser, {
-      displayName: name, photoURL: 'https://hips.hearstapps.com/hmg-prod/images/johnnydepp.jpg?resize=240:*'
+      displayName: name,
+      photoURL:
+        'https://hips.hearstapps.com/hmg-prod/images/johnnydepp.jpg?resize=240:*'
     })
   }
   // Firebase signIn with Google
@@ -38,6 +47,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithPopup(firebaseAuth, provider)
   }
+  const logout = () => {
+    signOut(firebaseAuth)
+  }
+  // This effect watches all event of user such as login, logout, signUp etc. etc.
   useEffect(() => {
     const unsubscribeUser = onAuthStateChanged(firebaseAuth, (currentUser) => {
       setUser(currentUser)
@@ -55,7 +68,9 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     signInWithGH,
     signUpWithEmail,
-    updateUserName
+    updateUserName,
+    logout,
+    signInWithEmail
   }
 
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>

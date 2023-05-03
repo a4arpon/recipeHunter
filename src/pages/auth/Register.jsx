@@ -1,11 +1,20 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthProvider'
 
 const Register = () => {
-  const { user, setUser, signInWithGoogle, signInWithGH, signUpWithEmail, updateUserName } =
-    useContext(AuthContext)
+  const {
+    user,
+    setUser,
+    signInWithGoogle,
+    signInWithGH,
+    signUpWithEmail,
+    updateUserName
+  } = useContext(AuthContext)
+  if (user) {
+    return <Navigate to={'/chef'} />
+  }
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
@@ -29,19 +38,21 @@ const Register = () => {
     const email = formData.userEmail.value
     const password = formData.userPassword.value
     if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(password)) {
-      signUpWithEmail(email, password).then((usr) => {
-        setUser(usr)
-        updateUserName(name).then(toast.success('SignUp With Email And Password Successful.')).catch(err => toast.warn(err.message))
-      }).catch(err => toast.error(err.message))
+      signUpWithEmail(email, password)
+        .then((usr) => {
+          setUser(usr)
+          updateUserName(name)
+            .then(toast.success('SignUp With Email And Password Successful.'))
+            .catch((err) => toast.warn(err.message))
+        })
+        .catch((err) => toast.error(err.message))
     } else {
       toast.warning(
         'Password must contains at last one numerical digit, one capital and one small letter. Between 6 to 20 Characters.'
       )
     }
   }
-  if (user) {
-    console.log(user)
-  }
+
   return (
     <div className="container mx-auto flex justify-center items-center my-20 px-2">
       <div className="card w-full sm:h-3/4 md:h-3/5 lg:w-2/4 xl:w-1/3 bg-base-100 shadow-xl">
