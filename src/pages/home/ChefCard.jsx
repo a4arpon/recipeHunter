@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 
 const ChefCard = ({ chef }) => {
-  const { _id, chefName, yearsOfExperience, numbersOfRecipes, likes } = chef
+  const { _id, img, chefName, yearsOfExperience, numbersOfRecipes, likes } = chef
   return (
     <div className="card card-compact w-full bg-base-100 shadow-xl">
       <figure>
         <img
-          src="https://static.nationalgeographic.co.uk/files/styles/image_3200/public/pioneer_sean-sherman_isa8573_hr.webp?w=400&h=500"
-          alt="Shoes"
+          src={img}
+          alt={'Photo Of Chef' + chefName}
           className="max-h-72 h-auto w-full"
         />
       </figure>
