@@ -1,19 +1,20 @@
 import { useContext } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthProvider'
 
 const Login = () => {
-  const { user, setUser, signInWithGoogle, signInWithGH, signInWithEmail } =
+  const { setUser, signInWithGoogle, signInWithGH, signInWithEmail } =
     useContext(AuthContext)
-  if (user) {
-    return <Navigate to={'/chef'} />
-  }
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
+        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -22,6 +23,7 @@ const Login = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
+        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -34,6 +36,7 @@ const Login = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Email Password')
+        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }

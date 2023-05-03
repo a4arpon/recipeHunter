@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthProvider'
 
@@ -12,14 +12,15 @@ const Register = () => {
     signUpWithEmail,
     updateUserName
   } = useContext(AuthContext)
-  if (user) {
-    return <Navigate to={'/chef'} />
-  }
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
+        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -28,6 +29,7 @@ const Register = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
+        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -44,6 +46,7 @@ const Register = () => {
           updateUserName(name)
             .then(toast.success('SignUp With Email And Password Successful.'))
             .catch((err) => toast.warn(err.message))
+          navigate(from, { replace: true })
         })
         .catch((err) => toast.error(err.message))
     } else {
