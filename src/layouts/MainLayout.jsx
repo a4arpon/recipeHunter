@@ -5,7 +5,7 @@ import Navbar from '../components/shared/Navbar'
 const MainLayout = () => {
   return (
     <div>
-      <div className="bg-accent bg-opacity-80 sticky z-10">
+      <div className="bg-accent">
         <Navbar />
       </div>
       <Outlet />
