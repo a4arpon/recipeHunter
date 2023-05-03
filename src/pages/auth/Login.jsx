@@ -8,13 +8,13 @@ const Login = () => {
     useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation()
-  const from = location.state?.from?.pathname || '/'
+  const fromWhere = location.state?.from?.pathname || '/'
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
-        navigate(from, { replace: true })
+        navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -23,7 +23,7 @@ const Login = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
-        navigate(from, { replace: true })
+        navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -36,7 +36,7 @@ const Login = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Email Password')
-        navigate(from, { replace: true })
+        navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -69,7 +69,11 @@ const Login = () => {
             <div className="my-2">
               <p>
                 Already have an account?{' '}
-                <Link className="text-blue-700 font-bold" to="/register">
+                <Link
+                  className="text-blue-700 font-bold"
+                  to="/register"
+                  state={{ from: fromWhere }}
+                >
                   Register Now.
                 </Link>
               </p>

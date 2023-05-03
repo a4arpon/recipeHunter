@@ -5,7 +5,6 @@ import { AuthContext } from '../../context/AuthProvider'
 
 const Register = () => {
   const {
-    user,
     setUser,
     signInWithGoogle,
     signInWithGH,
@@ -14,7 +13,7 @@ const Register = () => {
   } = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation()
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from || '/'
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
