@@ -3,10 +3,9 @@ const Footer = () => {
     <footer className="footer p-10 bg-base-200 text-base-content justify-around">
       <div>
         <span className="footer-title">Services</span>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <a className="link link-hover">Affiliate</a>
+        <a className="link link-hover">Our Outlets</a>
+        <a className="link link-hover">Home Delivery</a>
       </div>
       <div>
         <span className="footer-title">Legal</span>
@@ -18,7 +17,10 @@ const Footer = () => {
         <span className="footer-title">Newsletter</span>
         <div className="form-control w-80">
           <label className="label">
-            <span className="label-text">Enter your email address, we will send you emails when new recipe or chef will be added to our library.</span>
+            <span className="label-text">
+              Enter your email address, we will send you emails when new recipe
+              or chef will be added to our library.
+            </span>
           </label>
           <div className="relative mt-4">
             <input

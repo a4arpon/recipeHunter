@@ -68,7 +68,7 @@ const Login = () => {
             </div>
             <div className="my-2">
               <p>
-                Already have an account?{' '}
+                Don&rsquo;t have any account?{' '}
                 <Link
                   className="text-blue-700 font-bold"
                   to="/register"

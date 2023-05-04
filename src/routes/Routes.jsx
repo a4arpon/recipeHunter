@@ -7,6 +7,7 @@ import Blog from '../pages/blog/Blog'
 import Chef from '../pages/chef/Chef'
 import Error from '../pages/error/Error'
 import Home from '../pages/home/Home'
+import Profile from '../pages/profile/Profile'
 import PrivateRoutes from './PrivateRoutes'
 
 const Routes = createBrowserRouter([
@@ -37,6 +38,14 @@ const Routes = createBrowserRouter([
           <PrivateRoutes>
             <Chef />
           </PrivateRoutes>
+        )
+      },
+      {
+        path: '/profile',
+        element: (
+          // <PrivateRoutes>
+          <Profile />
+          // </PrivateRoutes>
         )
       },
       {

@@ -1,6 +1,6 @@
 # BuckDonald's
 
-## [Click to visit BuckDonald's](https://aliganjonline.web.app)
+## [Click to visit BuckDonald's](https://aliganjonline.web.app/)
 
 BuckDonald's contains top rated chefs details and their top recipes form California, Mexico and San Francisco City.
 
