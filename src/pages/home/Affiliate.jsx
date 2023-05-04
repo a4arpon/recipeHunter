@@ -9,7 +9,7 @@ const Affiliate = () => {
   }, [])
 
   return (
-    <div className="my-10">
+    <div className="my-20">
       <h1 className="border-b-2 pb-2 mb-4 text-2xl font-bold">
         Shop Now With Us.
       </h1>

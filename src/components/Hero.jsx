@@ -4,9 +4,9 @@ const Hero = () => {
     <div className="hero py-10 bg-info">
       <div className="hero-content flex-col-reverse md:flex-row lg:container w-full items-start lg:items-center md:justify-between">
         <div className="lg:w-3/4">
-          <h1 className="text-5xl font-bold">What are your favorite cuisines?</h1>
-          <p className="py-6">
-            Great Food, Great Life.
+          <h1 className="text-5xl font-bold">BuckDonald&rsquo;s Web</h1>
+          <p className="py-6 text-2xl">
+            Wikipedia of Crispy, Cheesy And Juicy Cooking Recipes
           </p>
           <button className="btn btn-primary font-bold">Get Started</button>
         </div>
