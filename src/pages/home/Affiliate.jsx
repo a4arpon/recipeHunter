@@ -31,7 +31,7 @@ const Affiliate = () => {
               <p className="my-1 font-semibold">Price: {product.price}</p>
               <div className="card-actions justify-end mt-auto">
                 <a
-                  className="btn btn-warning font-bold"
+                  className="btn btn-error font-bold text-white"
                   href={product.link}
                   target="_blank"
                   rel="noreferrer"

@@ -2,12 +2,22 @@ const Blog = () => {
   const qna = [
     {
       _id: 1,
-      q: 'How to validate React props using PropTypes tell under 50 words ChatGPT',
+      q: 'Tell us the differences between uncontrolled and controlled components.',
       a: 'To validate React props using PropTypes, import the PropTypes library, define a propTypes object, and set the prop types for each prop in the object. Use the propTypes object to validate that the props passed to a component match their expected types and values.'
     },
     {
       _id: 2,
       q: 'How to validate React props using PropTypes tell under 50 words ChatGPT',
+      a: 'To validate React props using PropTypes, import the PropTypes library, define a propTypes object, and set the prop types for each prop in the object. Use the propTypes object to validate that the props passed to a component match their expected types and values.'
+    },
+    {
+      _id: 3,
+      q: 'Tell us the difference between nodejs and express js.',
+      a: 'To validate React props using PropTypes, import the PropTypes library, define a propTypes object, and set the prop types for each prop in the object. Use the propTypes object to validate that the props passed to a component match their expected types and values.'
+    },
+    {
+      _id: 4,
+      q: ' What is a custom hook, and why will you create a custom hook?',
       a: 'To validate React props using PropTypes, import the PropTypes library, define a propTypes object, and set the prop types for each prop in the object. Use the propTypes object to validate that the props passed to a component match their expected types and values.'
     }
   ]
