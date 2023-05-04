@@ -5,7 +5,9 @@ import { toast } from 'react-toastify'
 import { recipeAdder } from '../../utils/Utils'
 const Recipe = ({ recipe, chef }) => {
   const { dishName, img, _id } = recipe
+  // This state handles add to favorite button active or disable
   const [isDisabled, setIsDisabled] = useState(false)
+  // This function handles favorite recipes event. Stores it on local storage and if the data is already saved it shows an error toast.
   const handleFavorite = (id) => {
     if (recipeAdder(id)) {
       setIsDisabled(true)

@@ -6,36 +6,45 @@ import { AuthContext } from '../../context/AuthProvider'
 const Login = () => {
   const { setUser, signInWithGoogle, signInWithGH, signInWithEmail } =
     useContext(AuthContext)
+  // For navigation form previous page and redirect to it while login is successful
   const navigate = useNavigate()
   const location = useLocation()
   const fromWhere = location.state?.from?.pathname || '/'
+  // This function handle Login with google action
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
+        // Navigate user to where he want to go.
         navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
+  // This function handle Login with Github action
   const handleContinueWithGH = () => {
     signInWithGH()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
+        // Navigate user to where he want to go.
         navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
+  // This function handle Login with email and password
   const handleCreateUserWithEmailAndPassword = (e) => {
+    // Prevent form default action
     e.preventDefault()
     const formData = e.target
+    // extract email and password from Form
     const email = formData.userEmail.value
     const password = formData.userPassword.value
     signInWithEmail(email, password)
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Email Password')
+        // Navigate user to where he want to go.
         navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))

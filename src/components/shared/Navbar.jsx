@@ -104,6 +104,7 @@ const Navbar = () => {
       <div>
         {user
           ? (
+            // If any user is logged in then his profile pic and actions will be visible
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -124,6 +125,7 @@ const Navbar = () => {
           </div>
             )
           : (
+            // If any user is not logged in then login button will be visible
           <Link to="/login" className="btn btn-primary font-bold">
             Login
           </Link>

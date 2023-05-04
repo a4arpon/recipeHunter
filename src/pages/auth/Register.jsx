@@ -11,44 +11,56 @@ const Register = () => {
     signUpWithEmail,
     updateUserName
   } = useContext(AuthContext)
+  // For navigation form previous page and redirect to it while login is successful
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from || '/'
+  // This function handle Register with google action
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
+        // Navigate user to where he want to go.
         navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
+  // This function handle Register with Github action
   const handleContinueWithGH = () => {
     signInWithGH()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
+        // Navigate user to where he want to go.
         navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
+  // This function handle Register with email and password
   const handleCreateUserWithEmailAndPassword = (e) => {
+    // Prevent form default action
     e.preventDefault()
     const formData = e.target
+    // extract email and password from Form
     const name = formData.userName.value
     const email = formData.userEmail.value
     const password = formData.userPassword.value
+    // validate password with regx
     if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(password)) {
       signUpWithEmail(email, password)
         .then((usr) => {
           setUser(usr)
+          // Update user name while user is created on firebase
           updateUserName(name)
             .then(toast.success('SignUp With Email And Password Successful.'))
             .catch((err) => toast.warn(err.message))
+          // Navigate user to where he want to go.
           navigate(from, { replace: true })
         })
         .catch((err) => toast.error(err.message))
     } else {
+      // if the password is under 6 chars or not matched with regx it shows warning to user
       toast.warning(
         'Password must contains at last one numerical digit, one capital and one small letter. Between 6 to 20 Characters.'
       )

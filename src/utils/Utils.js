@@ -1,3 +1,4 @@
+// This function takes id as a parameter of the recipe which one users want to do added in favorites and stores it in local storage.
 const recipeAdder = (id) => {
   const favoriteRecipes =
     JSON.parse(localStorage.getItem('favoriteRecipes')) || []

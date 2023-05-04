@@ -10,7 +10,7 @@ BuckDonald's contains top rated chefs details and their top recipes form Califor
 - Users can save all recipes from any chef as like pdf.
 - Recipes are describe in very detailed any bigener friendly way.
 
-To Install BuckDonald's Try These Steps
+To Install BuckDonald's Follow These Steps
 ```sh
 npm i
 ```
