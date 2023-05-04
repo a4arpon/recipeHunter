@@ -38,9 +38,12 @@ const Routes = createBrowserRouter([
             <Chef />
           </PrivateRoutes>
         )
+      },
+      {
+        path: '*',
+        element: <Error />
       }
-    ],
-    errorElement: <Error />
+    ]
   }
 ])
 export default Routes

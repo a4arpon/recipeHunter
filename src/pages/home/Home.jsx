@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import Hero from '../../components/Hero'
 import Loader from '../../components/shared/Loader'
+import Affiliate from './Affiliate'
 import ChefCard from './ChefCard'
+import OurOutlets from './OurOutlets'
 
 const Home = () => {
   const [chefs, setChefs] = useState(null)
@@ -26,6 +28,10 @@ const Home = () => {
         : (
         <Loader />
           )}
+      <div className="container mx-auto px-2">
+        <Affiliate />
+        <OurOutlets />
+      </div>
     </div>
   )
 }
