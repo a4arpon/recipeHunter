@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 const Affiliate = () => {
   const [products, setProducts] = useState([])
   useEffect(() => {
@@ -20,10 +21,12 @@ const Affiliate = () => {
             key={product.id}
           >
             <figure>
-              <img
+              <LazyLoadImage
                 src={product.img}
                 alt={product.name}
                 className="max-h-72 h-auto w-full"
+                effect="blur"
+                width="100%"
               />
             </figure>
             <div className="card-body">

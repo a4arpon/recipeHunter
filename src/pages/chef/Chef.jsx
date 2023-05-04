@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 import { useParams } from 'react-router-dom'
 import Loader from '../../components/shared/Loader'
 import Recipe from './Recipe'
@@ -22,24 +24,23 @@ const Chef = () => {
           <div className="hero-content flex-col-reverse md:flex-row lg:container w-full items-start lg:items-center md:justify-between">
             <div className="lg:w-3/4">
               <h1 className="text-5xl font-bold">{chef.chefName}</h1>
-              <p className="py-6">
-                {chef?.bio || 'Great Food, Great Life'}
-              </p>
+              <p className="py-6">{chef?.bio || 'Great Food, Great Life'}</p>
               <ul className="font-semibold">
                 <li>Years of experience : {chef?.yearsOfExperience || 0}</li>
                 <li>Numbers of recipes : {chef?.numbersOfRecipes || 0}</li>
                 <li>Likes : {chef?.likes || 0}</li>
               </ul>
             </div>
-            <img
+            <LazyLoadImage
               src={chef?.img || backupImg}
-              className="w-auto lg:h-auto max-h-96 lg:w-1/4 mb-4 p-2 rounded-3xl"
+              className="w-auto lg:h-auto max-h-96 mb-4 p-2 rounded-3xl"
+              effect="blur"
             />
           </div>
         </div>
         <div className="container mx-auto grid lg:grid-cols-2 gap-3 my-16 px-2 md:px-0">
           {chef?.recipes?.map((recipe) => (
-            <Recipe key={recipe._id} recipe={recipe} />
+            <Recipe key={recipe._id} recipe={recipe} chef={chefID} />
           ))}
         </div>
       </div>

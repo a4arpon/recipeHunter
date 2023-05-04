@@ -115,7 +115,7 @@ const Navbar = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 font-extrabold"
             >
               <li>
-                <Link>{user.displayName} Profile</Link>
+                <Link to="/profile">{user.displayName} Profile</Link>
               </li>
               <li>
                 <button onClick={logout}>Logout</button>

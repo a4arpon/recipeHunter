@@ -1,4 +1,4 @@
-import heroImage from '../assets/img/chefHero.png'
+import heroImage from '../assets/img/chefHero.webp'
 const Hero = () => {
   return (
     <div className="hero py-10 bg-info">
@@ -6,7 +6,7 @@ const Hero = () => {
         <div className="lg:w-3/4">
           <h1 className="text-5xl font-bold">BuckDonald&rsquo;s Web</h1>
           <p className="py-6 text-2xl">
-            Wikipedia of Crispy, Cheesy And Juicy Cooking Recipes
+            Wikipedia for Crispy, Cheesy And Juicy Cooking Recipes
           </p>
           <button className="btn btn-primary font-bold">Get Started</button>
         </div>
