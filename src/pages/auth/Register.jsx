@@ -98,10 +98,10 @@ const Register = () => {
                 className="file-input file-input-bordered w-full mt-2 file-input-primary focus:outline-none"
               />
             </div>
-            <div className="my-2">
+            <div className="my-3">
               <p>
                 Already have an account?{' '}
-                <Link className="text-blue-700 font-bold" to="/login">
+                <Link className="text-blue-700 font-bold underline" to="/login">
                   Login Now.
                 </Link>
               </p>

@@ -66,11 +66,11 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="my-2">
+            <div className="my-3">
               <p>
                 Don&rsquo;t have any account?{' '}
                 <Link
-                  className="text-blue-700 font-bold"
+                  className="text-blue-700 font-bold underline"
                   to="/register"
                   state={{ from: fromWhere }}
                 >

@@ -7,7 +7,7 @@ const Error = () => {
       <h1 className="mb-3 text-5xl text-rose-600 font-bold">Error 404.</h1>
       <p className="mb-3 text-xl">
         Page Not Found. You&rsquo;re at the wrong directory. Click to back on{' '}
-        <Link className="text-blue-600 font-bold" to="/">
+        <Link className="text-blue-600 font-bold underline" to="/">
           Home Page.
         </Link>
       </p>
