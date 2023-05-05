@@ -39,6 +39,9 @@ const Chef = () => {
           </div>
         </div>
         <div className="container mx-auto grid lg:grid-cols-2 gap-3 my-16 px-2 md:px-0">
+          <h1 className="lg:col-span-2 text-3xl font-bold text-center mb-2 pb-3 border-b-2">
+            {chef.chefName}&rsquo;s Top Class Recipes
+          </h1>
           {chef?.recipes?.map((recipe) => (
             // Chef id is required for making unique id for favorites recipes and storing it in local storage.
             <Recipe key={recipe._id} recipe={recipe} chef={chefID} />
