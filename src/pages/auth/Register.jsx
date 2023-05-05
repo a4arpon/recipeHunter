@@ -1,10 +1,11 @@
 import { useContext } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthProvider'
 
 const Register = () => {
   const {
+    user,
     setUser,
     signInWithGoogle,
     signInWithGH,
@@ -12,17 +13,17 @@ const Register = () => {
     updateUserName
   } = useContext(AuthContext)
   // For navigation form previous page and redirect to it while login is successful
-  const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from || '/'
+  if (user) {
+    return <Navigate to={from} replace />
+  }
   // This function handle Register with google action
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
-        // Navigate user to where he want to go.
-        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -32,8 +33,6 @@ const Register = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
-        // Navigate user to where he want to go.
-        navigate(from, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -55,8 +54,6 @@ const Register = () => {
           updateUserName(name)
             .then(toast.success('SignUp With Email And Password Successful.'))
             .catch((err) => toast.warn(err.message))
-          // Navigate user to where he want to go.
-          navigate(from, { replace: true })
         })
         .catch((err) => toast.error(err.message))
     } else {

@@ -1,23 +1,23 @@
 import { useContext } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthProvider'
 
 const Login = () => {
-  const { setUser, signInWithGoogle, signInWithGH, signInWithEmail } =
+  const { user, setUser, signInWithGoogle, signInWithGH, signInWithEmail } =
     useContext(AuthContext)
   // For navigation form previous page and redirect to it while login is successful
-  const navigate = useNavigate()
   const location = useLocation()
   const fromWhere = location.state?.from?.pathname || '/'
+  if (user) {
+    return <Navigate to={fromWhere} replace />
+  }
   // This function handle Login with google action
   const handleContinueWithGoogle = () => {
     signInWithGoogle()
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Google')
-        // Navigate user to where he want to go.
-        navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -27,8 +27,6 @@ const Login = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With GitHub')
-        // Navigate user to where he want to go.
-        navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }
@@ -44,8 +42,6 @@ const Login = () => {
       .then((res) => {
         setUser(res)
         toast.success('SignIn Successful With Email Password')
-        // Navigate user to where he want to go.
-        navigate(fromWhere, { replace: true })
       })
       .catch((err) => toast.error(err.message))
   }

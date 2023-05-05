@@ -1,22 +1,19 @@
+import { useContext } from 'react'
+import { AuthContext } from '../../context/AuthProvider'
+
 const Profile = () => {
-  const profile = {}
+  const { user } = useContext(AuthContext)
+  console.log(user)
   return (
     <div className="container mx-auto my-20 px-5">
-      <div
-        className="card card-compact w-full bg-gray-100 shadow-xl"
-        key={profile.id}
-      >
+      <div className="card card-compact w-full bg-gray-100 shadow-xl">
         <div className="card-body">
           <h1 className="border-b-2 pb-2 mb-4 text-2xl font-bold">
             My Profile
           </h1>
-          <h2 className="card-title">product.name.substring(0, 30)...</h2>
-          <p className="my-1 font-semibold">Price: </p>
-          <div className="card-actions justify-end mt-auto">
-            <button className="btn btn-primary font-bold text-white">
-              Save Now
-            </button>
-          </div>
+          <h2 className="card-title">Name: </h2>
+          <p className="my-1 font-semibold text-xl">Email: </p>
+          <p className="my-1 font-semibold text-xl">Phone: </p>
         </div>
       </div>
     </div>
