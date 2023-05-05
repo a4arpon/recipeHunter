@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unsubscribeUser()
     }
-  }, [])
+  }, [user])
   // Context function and value container
   const auth = {
     user,
