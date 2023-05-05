@@ -4,7 +4,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 import { AuthContext } from '../../context/AuthProvider'
 const Profile = () => {
   const { user } = useContext(AuthContext)
-  console.log(user)
   return (
     <div className="container mx-auto my-20 px-5">
       <div className="card card-compact w-full bg-gray-100 shadow-xl">
